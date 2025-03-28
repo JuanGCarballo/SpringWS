@@ -18,12 +18,15 @@ public class FakeUserDB {
         User user1 = new User();
         user1.setId(1);
         user1.setUsername("user1");
+        user1.setPassword("password1");
         user1.setEmail("user@mail.com");
         Address address1 = new Address();
         address1.setDireccion("Calle 1");
         address1.setCiudad("Ciudad 1");
         address1.setPais("Pais 1");
         user1.setAddress(address1);
+        user1.setFechaExpiracion("2022-12-31");
+        user1.setUltimoLogin("2021-12-31");
 
         dbUsers.put(user1.getId(), user1);
     }
