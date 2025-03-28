@@ -11,7 +11,7 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 public class AuthenticateEndpoint {
 
-    private static final String NAMESPACE_URI = "http://www.neesis.es/soapserver/ws/user";
+    private static final String NAMESPACE_URI = "http://www.neesis.es/soapserver/ws/auth";
 
     private final AuthService authService;
 
