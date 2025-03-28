@@ -5,6 +5,8 @@ import es.neesis.soapserver.ws.user.User;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
 
+import javax.xml.datatype.XMLGregorianCalendar;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,8 +27,8 @@ public class FakeUserDB {
         address1.setCiudad("Ciudad 1");
         address1.setPais("Pais 1");
         user1.setAddress(address1);
-        user1.setFechaExpiracion("2022-12-31");
-        user1.setUltimoLogin("2021-12-31");
+        user1.setFechaExpiracion(XMLGregorianCalendar.class.cast(LocalDateTime.now().plusDays(10)));
+        user1.setUltimoLogin(XMLGregorianCalendar.class.cast(LocalDateTime.now()));
 
         dbUsers.put(user1.getId(), user1);
     }

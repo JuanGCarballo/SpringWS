@@ -2,15 +2,17 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v3.0.0 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2024.03.20 a las 07:39:30 AM CET 
+// Generado el: 2025.03.28 a las 01:03:18 PM CET 
 //
 
 
 package es.neesis.soapserver.ws.user;
 
+import javax.xml.datatype.XMLGregorianCalendar;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
 
@@ -25,9 +27,12 @@ import jakarta.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="password" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="username" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="email" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="address" type="{http://www.neesis.es/soapserver/ws/user}address"/&gt;
+ *         &lt;element name="fechaExpiracion" type="{http://www.w3.org/2001/XMLSchema}dateTime"/&gt;
+ *         &lt;element name="ultimoLogin" type="{http://www.w3.org/2001/XMLSchema}dateTime"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -39,19 +44,30 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "user", propOrder = {
     "id",
+    "password",
     "username",
     "email",
-    "address"
+    "address",
+    "fechaExpiracion",
+    "ultimoLogin"
 })
 public class User {
 
     protected int id;
+    @XmlElement(required = true)
+    protected String password;
     @XmlElement(required = true)
     protected String username;
     @XmlElement(required = true)
     protected String email;
     @XmlElement(required = true)
     protected Address address;
+    @XmlElement(required = true)
+    @XmlSchemaType(name = "dateTime")
+    protected XMLGregorianCalendar fechaExpiracion;
+    @XmlElement(required = true)
+    @XmlSchemaType(name = "dateTime")
+    protected XMLGregorianCalendar ultimoLogin;
 
     /**
      * Obtiene el valor de la propiedad id.
@@ -67,6 +83,30 @@ public class User {
      */
     public void setId(int value) {
         this.id = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad password.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * Define el valor de la propiedad password.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setPassword(String value) {
+        this.password = value;
     }
 
     /**
@@ -139,6 +179,54 @@ public class User {
      */
     public void setAddress(Address value) {
         this.address = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad fechaExpiracion.
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public XMLGregorianCalendar getFechaExpiracion() {
+        return fechaExpiracion;
+    }
+
+    /**
+     * Define el valor de la propiedad fechaExpiracion.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public void setFechaExpiracion(XMLGregorianCalendar value) {
+        this.fechaExpiracion = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad ultimoLogin.
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public XMLGregorianCalendar getUltimoLogin() {
+        return ultimoLogin;
+    }
+
+    /**
+     * Define el valor de la propiedad ultimoLogin.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public void setUltimoLogin(XMLGregorianCalendar value) {
+        this.ultimoLogin = value;
     }
 
 }

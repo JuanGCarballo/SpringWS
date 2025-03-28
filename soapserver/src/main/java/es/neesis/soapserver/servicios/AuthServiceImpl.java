@@ -4,6 +4,7 @@ import es.neesis.soapserver.repository.FakeUserDB;
 import es.neesis.soapserver.ws.user.User;
 import org.springframework.stereotype.Service;
 
+import javax.xml.datatype.XMLGregorianCalendar;
 import java.time.LocalDateTime;
 import java.util.Base64;
 
@@ -18,14 +19,14 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public User authenticate(String username, String password) {
-        User user = this.getUser(username, this.decodePassword(password));
+        User user = this.fakeUserDB.getUser(username, this.decodePassword(password));
 
         if (user == null) {
             throw new RuntimeException("Usuario no encontrado");
         } else if (this.passwordIsExpired(user)) {
             throw new RuntimeException("Contraseña expirada");
         }
-        
+
         this.actualizarFechaUltimoLogin(user);
         return user;
     }
@@ -35,11 +36,13 @@ public class AuthServiceImpl implements AuthService {
     }
 
     private void actualizarFechaUltimoLogin(User user) {
-        user.setUltimoLogin(LocalDateTime.now().toLocalTime());
+        user.setUltimoLogin(XMLGregorianCalendar.class.cast(LocalDateTime.now()));
     }
 
     private boolean passwordIsExpired(User user) {
-        return LocalDateTime.now().isAfter(LocalDateTime.parse(user.getFechaExpiracion()));
+        XMLGregorianCalendar fechaExpiracion = user.getFechaExpiracion();
+        XMLGregorianCalendar fechaActual = XMLGregorianCalendar.class.cast(LocalDateTime.now());
+        return fechaActual.compare(fechaExpiracion) == 1;
     }
 
 }

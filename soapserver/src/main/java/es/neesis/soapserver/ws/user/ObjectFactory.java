@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v3.0.0 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2024.03.20 a las 07:39:30 AM CET 
+// Generado el: 2025.03.28 a las 01:03:18 PM CET 
 //
 
 
@@ -58,6 +58,22 @@ public class ObjectFactory {
      */
     public User createUser() {
         return new User();
+    }
+
+    /**
+     * Create an instance of {@link GetAuthRequest }
+     * 
+     */
+    public GetAuthRequest createGetAuthRequest() {
+        return new GetAuthRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetAuthResponse }
+     * 
+     */
+    public GetAuthResponse createGetAuthResponse() {
+        return new GetAuthResponse();
     }
 
     /**

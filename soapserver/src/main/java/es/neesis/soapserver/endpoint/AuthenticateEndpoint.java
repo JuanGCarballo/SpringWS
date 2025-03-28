@@ -1,6 +1,8 @@
 package es.neesis.soapserver.endpoint;
 
 import es.neesis.soapserver.servicios.AuthService;
+import es.neesis.soapserver.ws.user.GetAuthRequest;
+import es.neesis.soapserver.ws.user.GetAuthResponse;
 import es.neesis.soapserver.ws.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
