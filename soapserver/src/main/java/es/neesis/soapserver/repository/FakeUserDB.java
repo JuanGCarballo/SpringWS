@@ -34,4 +34,8 @@ public class FakeUserDB {
     public User getUser(int id) {
         return dbUsers.get(id);
     }
+
+    public User getUser(String username, String password) {
+        return dbUsers.values().stream().filter(user -> user.getUsername().equals(username) && user.getPassword().equals(password)).findFirst().orElse(null);
+    }
 }

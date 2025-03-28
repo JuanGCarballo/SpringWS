@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    targetNamespace="http://www.neesis.es/soapserver/ws/user"
-    xmlns:tns="http://www.neesis.es/soapserver/ws/user"
-    elementFormDefault="qualified">
+           targetNamespace="http://www.neesis.es/soapserver/ws/user"
+           xmlns:tns="http://www.neesis.es/soapserver/ws/user"
+           elementFormDefault="qualified">
 
     <xs:element name="getUserRequest">
         <xs:complexType>
@@ -16,6 +16,15 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="user" type="tns:user"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAuthRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="username" type="xs:string"/>
+                <xs:element name="password" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -41,7 +50,7 @@
             <xs:element name="ultimoLogin" type="xs:dateTime"/>
         </xs:sequence>
     </xs:complexType>
-    
+
     <xs:complexType name="address">
         <xs:sequence>
             <xs:element name="direccion" type="xs:string"/>
