@@ -17,12 +17,20 @@ public class UserClient extends WebServiceGatewaySupport {
         return (GetUserResponse) getWebServiceTemplate().marshalSendAndReceive(request);
     }
 
-    public LoginResponse login(String username, String password) {
+    public boolean login(String username, String password) {
         LoginRequest request = new LoginRequest();
         request.setUsername(username);
         String hashPassword = Base64.getEncoder().encodeToString(password.getBytes());
         request.setPassword(hashPassword);
 
-        return (LoginResponse) getWebServiceTemplate().marshalSendAndReceive(request);
+        LoginResponse response = (LoginResponse) getWebServiceTemplate().marshalSendAndReceive(request);
+
+        if (response.isAuthenticated()) {
+            System.out.println("Login correcto para el usuario: " + username);
+            return true;
+        } else {
+            System.out.println("Credenciales incorrectas para el usuario: " + username);
+            return false;
+        }
     }
 }
